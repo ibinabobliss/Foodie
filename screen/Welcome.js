@@ -34,8 +34,8 @@ function FirstNavigator() {
           fontSize: 21,
         }}
       >
-        Get free access to hundreds of delicious and detailed restaurant meals
-        and recipes from the comfort of your home
+        Get free access to delicious and detailed restaurant meals and recipes
+        from the comfort of your home
       </Text>
     </View>
   );
@@ -57,7 +57,7 @@ export default function WelcomeScreen({ navigation }) {
           style={{
             backgroundColor: "tomato",
             fontWeight: "bold",
-            marginTop: 75,
+            marginTop: 70,
             padding: 10,
             paddingHorizontal: 60,
             borderRadius: 13,

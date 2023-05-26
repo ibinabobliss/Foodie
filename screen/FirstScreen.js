@@ -15,7 +15,13 @@ import SecondScreen from "./utils/secondarray";
 
 function TopNavigation() {
   return (
-    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 20,
+      }}
+    >
       <View>
         <Text
           style={{
@@ -38,15 +44,19 @@ function TopNavigation() {
 
 function SecondNavigation() {
   const [search, setSearch] = useState("");
+  const handlePress = () => {
+    return <View></View>;
+  };
   return (
     <View>
       <Text style={{ fontSize: 34, fontWeight: "500", color: "black" }}>
         What do you want to cook today?
       </Text>
       <TextInput
+        onPressIn={handlePress}
         value={search}
         onChangeText={(item) => setSearch(item)}
-        placeholder="what are your looking for "
+        placeholder="what are your looking for ?"
         style={{
           color: "black",
           marginTop: 26,
@@ -70,7 +80,7 @@ function ThirdNavigation() {
         data={["Italian", "French", "Mexican"]}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={{ marginHorizontal: 15 }} key={item}>
+            <View style={{ marginHorizontal: 15 }} key={item}>
               <Text
                 style={{
                   backgroundColor: "#bdbdbd",
@@ -82,7 +92,7 @@ function ThirdNavigation() {
               >
                 {item}
               </Text>
-            </TouchableOpacity>
+            </View>
           );
         }}
       />
@@ -153,20 +163,20 @@ function FifthNavigation() {
 }
 export default function HomeScreen() {
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
+    <View
       style={{
-        padding: 20,
-        marginTop: 30,
-        flex: 1,
         backgroundColor: "#f9fbe7",
+        flex: 1,
+        padding: 20,
       }}
     >
-      <TopNavigation />
-      <SecondNavigation />
-      <ThirdNavigation />
-      <ForthNavigation />
-      <FifthNavigation />
-    </ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <TopNavigation />
+        <SecondNavigation />
+        <ThirdNavigation />
+        <ForthNavigation />
+        <FifthNavigation />
+      </ScrollView>
+    </View>
   );
 }

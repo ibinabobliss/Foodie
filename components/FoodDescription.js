@@ -3,83 +3,139 @@ import {
   Text,
   Image,
   useWindowDimensions,
-  TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React from "react";
 
 export default function FoodDescription({ item }) {
   const { width } = useWindowDimensions();
   return (
-    <View>
-      <View
-        style={{
-          marginTop: 20,
-          marginHorizontal: 15,
-        }}
-      >
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ marginVertical: 10 }}
+    >
+      <View>
         <Image
+          resizeMode="contain"
           source={{ uri: item.thumbnail_url }}
           style={{
-            overflow: "hidden",
             width: "100%",
             height: width,
-            borderRadius: 35,
+            borderRadius: 20,
           }}
         />
-      </View>
+        <View
+          style={{
+            backgroundColor: "black",
+            padding: 20,
+            borderTopRightRadius: 30,
+            borderBottomLeftRadius: 30,
+          }}
+        >
+          <Text
+            style={{
+              marginTop: 5,
+              fontWeight: "bold",
+              fontSize: 18,
+              color: "#81c784",
+            }}
+          >
+            {item.name}
+          </Text>
+          <View>
+            <Text numberOfLines={3} style={{ marginTop: 7, color: "white" }}>
+              {item.description}
+            </Text>
+          </View>
 
-      <Text
-        style={{
-          marginTop: 10,
-          fontWeight: "bold",
-          fontSize: 19,
-          alignItems: "center",
-        }}
-      >
-        {item.description}
-      </Text>
+          <View style={{ marginVertical: 5 }}>
+            <Text
+              style={{
+                color: "lightgreen",
+                fontWeight: "bold",
+              }}
+            >
+              instructions :
+            </Text>
+            <Text
+              style={{
+                color: "white",
+                marginVertical: 3,
+                fontWeight: "bold",
+              }}
+              numberOfLines={3}
+            >
+              * {item.instructions[0].display_text}
+            </Text>
 
-      <View>
-        <Text
-          style={{
-            fontSize: 12,
-            fontWeight: "bold",
-            marginTop: 10,
-            color: "tomato",
-          }}
-        >
-          Video-url:
-        </Text>
-        <Text
-          style={{
-            marginTop: 5,
-            fontWeight: "bold",
-            alignItems: "center",
-            color: "lightgreen",
-          }}
-        >
-          {item.video_url}
-        </Text>
+            <Text
+              style={{
+                color: "white",
+                marginVertical: 5,
+                fontWeight: "bold",
+              }}
+              numberOfLines={3}
+            >
+              * {item.instructions[1].display_text}
+            </Text>
+
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                marginVertical: 5,
+              }}
+              numberOfLines={3}
+            >
+              * {item.instructions[2].display_text}
+            </Text>
+
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                marginVertical: 5,
+              }}
+              numberOfLines={3}
+            >
+              * {item.instructions[3].display_text}
+            </Text>
+
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                marginVertical: 5,
+              }}
+              numberOfLines={3}
+            >
+              * {item.instructions[4].display_text}
+            </Text>
+          </View>
+
+          <View>
+            <View style={{}}>
+              <Text
+                style={{
+                  color: "lightgreen",
+                  fontWeight: "bold",
+                }}
+              >
+                Youtube Link :
+              </Text>
+              <Text
+                style={{
+                  color: "white",
+                  marginVertical: 5,
+                }}
+              >
+                {item.original_video_url}
+              </Text>
+            </View>
+            <View style={{}}></View>
+          </View>
+        </View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-        }}
-      >
-        <Text
-          style={{
-            marginTop: 9,
-            color: "tomato",
-            fontWeight: "bold",
-          }}
-        >
-          Total-Time :
-        </Text>
-        <Text style={{ marginHorizontal: 8, marginTop: 9 }}>
-          {" "}
-          {item.total_time_minutes} Mins
-        </Text>
-      </View>
-    </View>
+    </ScrollView>
   );
 }

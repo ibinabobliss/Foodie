@@ -44,14 +44,24 @@ const UseFetch = () => {
   // },
   //;
 
+  //const options = {
+  //  method: "GET",
+  //  url: "https://tasty.p.rapidapi.com/recipes/list",
+  //  params: {
+  //    from: "0",
+  //    size: "20",
+  //    tags: "under_30_minutes",
+  //  },
+  //  headers: {
+  //    "X-RapidAPI-Key": "0c84987a30msh7c9a7a8fe6c8129p1a8237jsn44a9369933c5",
+  //    "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+  //  },
+  //};
+
   const options = {
     method: "GET",
-    url: "https://tasty.p.rapidapi.com/recipes/list",
-    params: {
-      from: "0",
-      size: "20",
-      tags: "under_30_minutes",
-    },
+    url: "https://tasty.p.rapidapi.com/recipes/list-similarities",
+    params: { recipe_id: "8138" },
     headers: {
       "X-RapidAPI-Key": "0c84987a30msh7c9a7a8fe6c8129p1a8237jsn44a9369933c5",
       "X-RapidAPI-Host": "tasty.p.rapidapi.com",
@@ -62,7 +72,7 @@ const UseFetch = () => {
     setIsLoading(true);
     try {
       const response = await axios.request(options);
-      //console.log(response.data);
+      console.log(response.data);
       setData(response.data);
     } catch (error) {
       //console.error(error);
